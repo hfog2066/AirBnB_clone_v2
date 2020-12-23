@@ -4,7 +4,7 @@
 from fabric.api import *
 import os
 
-env.hosts = ["34.75.144.80", "34.75.144.192"]
+env.hosts = ["35.237.254.224", "34.73.109.66"]
 env.user = "ubuntu"
 
 
@@ -22,6 +22,7 @@ def do_deploy(archive_path):
     if basename[-4:] == ".tgz":
         name = basename[:-4]
     newdir = "/data/web_static/releases/" + name
+    run("mkdir -p " + newdir)
     run("tar -xzf /tmp/" + basename + " -C " + newdir)
 
     run("rm /tmp/" + basename)
