@@ -22,7 +22,6 @@ def do_deploy(archive_path):
     if basename[-4:] == ".tgz":
         name = basename[:-4]
     newdir = "/data/web_static/releases/" + name
-    run("mkdir -p " + newdir)
     run("tar -xzf /tmp/" + basename + " -C " + newdir)
 
     run("rm /tmp/" + basename)
